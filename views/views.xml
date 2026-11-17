@@ -45,5 +45,17 @@
         </xpath>
       </field>
     </record>
+
+    <record id="branch_physical_inventory_quant_tree_short_barcode" model="ir.ui.view">
+      <field name="name">branch.physical.inventory.quant.tree.short.barcode</field>
+      <field name="model">stock.quant</field>
+      <field name="priority">130</field>
+      <field name="inherit_id" ref="kio_branch_inventory.view_branch_physical_inventory_quant_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='branch_inventory_barcode']" position="replace">
+          <field name="kio_short_barcode" string="Barcode" readonly="1" optional="show"/>
+        </xpath>
+      </field>
+    </record>
   </data>
 </odoo>
