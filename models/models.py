@@ -1,19 +1,21 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
+from odoo import api, fields, models
 
 
-# class kio_short_barcode_extension(models.Model):
-#     _name = 'kio_short_barcode_extension.kio_short_barcode_extension'
-#     _description = 'kio_short_barcode_extension.kio_short_barcode_extension'
+class ProductProduct(models.Model):
+    _inherit = 'product.product'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    kio_short_barcode = fields.Char(
+        string='Barcode',
+        compute='_compute_kio_short_barcode',
+        store=True,
+        readonly=True,
+    )
+
+    @api.depends('barcode')
+    def _compute_kio_short_barcode(self):
+        for product in self:
+            barcode = product.barcode or ''
+            product.kio_short_barcode = barcode[-7:] if barcode else ''
 
