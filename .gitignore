@@ -1,0 +1,51 @@
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Odoo files
+*.log
+*.pid
+*.dump
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+*~
+
+# Test and coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Database files
+*.sqlite3
+*.db
