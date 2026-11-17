@@ -15,10 +15,14 @@ without changing the original product barcode.
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Productivity',
-    'version': '17.0.1.0.0',
+    'version': '17.0.1.1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['product'],
+    'depends': [
+        'product',
+        'stock',
+        'kio_inventory_product_extension',
+    ],
 
     # always loaded
     'data': [

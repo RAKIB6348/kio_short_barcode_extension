@@ -10,5 +10,16 @@
         </xpath>
       </field>
     </record>
+
+    <record id="stock_product_product_tree_view_short_barcode" model="ir.ui.view">
+      <field name="name">product.product.stock.tree.short.barcode</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="stock.product_product_stock_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='barcode']" position="replace">
+          <field name="kio_short_barcode" string="Barcode" readonly="1" optional="show"/>
+        </xpath>
+      </field>
+    </record>
   </data>
 </odoo>
