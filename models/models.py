@@ -19,3 +19,13 @@ class ProductProduct(models.Model):
             barcode = product.barcode or ''
             product.kio_short_barcode = barcode[-7:] if barcode else ''
 
+
+class StockQuant(models.Model):
+    _inherit = 'stock.quant'
+
+    kio_short_barcode = fields.Char(
+        string='Barcode',
+        related='product_id.kio_short_barcode',
+        readonly=True,
+    )
+
