@@ -29,3 +29,13 @@ class StockQuant(models.Model):
         readonly=True,
     )
 
+
+class StockValuationLayer(models.Model):
+    _inherit = 'stock.valuation.layer'
+
+    kio_short_barcode = fields.Char(
+        string='Barcode',
+        related='product_id.kio_short_barcode',
+        readonly=True,
+    )
+
